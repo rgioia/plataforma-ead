@@ -1,8 +1,9 @@
 // Entry point for the build script in your package.json
-import "@hotwired/turbo-rails"
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
 import "./controllers"
 import './add_jquery'
-import * as bootstrap from "bootstrap"
+import './add_bootstrap'
 import "./editor"
 import "./form-validator.min"
 import "./jbox.all.min"
@@ -12,4 +13,5 @@ import "./owl.carousel.min"
 import "./simplebar.min"
 import "./sweetalert2.all.min"
 import "./calendar"
+import "./popover"
 import "./custom"

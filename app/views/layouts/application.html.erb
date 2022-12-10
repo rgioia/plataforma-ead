@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
     <title>Plataforma EAD</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,14 +12,19 @@
 
   <body class="body-bg-f8faff">
     <%= render 'shared/preloader' %>
-    <div class="all-section-area">
-      <%= render 'shared/header' %>
-      <%= render 'shared/sidebar_menu' %>
-      <main class="main-content-wrap">
-        <%= yield %>
-      </main>
-      <%= render 'shared/footer' %>
-    </div>
-  <%= render 'shared/go_top' %>
+    <%= render 'shared/flashes' %>
+    <% if user_signed_in? %>
+      <div class="all-section-area">
+        <%= render 'shared/header' %>
+        <%= render 'shared/sidebar_menu' %>
+        <main class="main-content-wrap">
+          <%= yield %>
+        </main>
+        <%= render 'shared/footer' %>
+      </div>
+      <%= render 'shared/go_top' %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

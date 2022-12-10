@@ -342,10 +342,10 @@
               <div class="dropdown-footer">
                 <ul class="profile-nav">
                   <li class="nav-item">
-                    <a href="login.html" class="nav-link">
+                    <%= link_to destroy_user_session_path, class: 'nav-link', data: { turbo_method: :delete } do %>
                       <i class="ri-login-circle-line"></i>
-                      <span>Logout</span>
-                    </a>
+                      <span><%= t("devise.sessions.logout") %></span>
+                    <% end %>
                   </li>
                 </ul>
               </div>

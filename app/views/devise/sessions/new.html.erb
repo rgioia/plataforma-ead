@@ -10,17 +10,19 @@
             <h3><%= t('.sign_in') %></h3>
           </div>
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "account-wrap") do |f| %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "account-wrap", data: { turbo: false }) do |f| %>
             <div class="form-group mb-24 icon">
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
               <%= image_tag('icon/sms.svg', alt: "sms") %>
             </div>
             <div class="form-group mb-24 icon">
-              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password" %>
+              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Senha" %>
               <%= image_tag('icon/key.svg', alt: "key") %>
             </div>
-            <div class="form-group mb-24">
+
+            <div class="form-group mb-24 text-center">
               <%= f.submit t('.sign_in'), class: "default-btn" %>
+              <div class="clearfix"></div>
             </div>
           <% end %>
 
@@ -30,4 +32,3 @@
     </div>
   </div>
 </div>
-<!-- End Account Area -->

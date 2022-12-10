@@ -1,0 +1,22 @@
+<% flash.each do |type, message| %>
+  <% next unless %w[alert notice error].include?(type) %>
+
+  <div role="alert" aria-live="assertive" aria-atomic="true" class="toast fixed-top m-5 ms-auto"
+       data-bs-autohide="false">
+    <div class="toast-header <%= class_by_type(type) %>">
+      <strong class="me-auto"></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      <%= message %>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  window.onload = (event) => {
+    $(document).ready(function() {
+      $(".toast").toast('show');
+    });
+  };
+</script>
