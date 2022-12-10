@@ -1,16 +1,32 @@
-<h2><%= t('.forgot_your_password') %></h2>
+<div class="account-area">
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div class="container">
+        <div class="account-content">
+          <div class="account-header">
+            <%= link_to root_path do %>
+              <%= image_tag('main-logo.svg', alt: "main-logo") %>
+            <% end %>
+            <h3><%= t('.forgot_your_password') %></h3>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "account-wrap" }, data: { turbo: false }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <div class="form-group mb-24 icon">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
+              <%= image_tag('icon/sms.svg', alt: "sms") %>
+            </div>
+
+            <div class="form-group mb-24 text-center">
+              <%= f.submit t('.send_me_reset_password_instructions'), class: "default-btn" %>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit t('.send_me_reset_password_instructions') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

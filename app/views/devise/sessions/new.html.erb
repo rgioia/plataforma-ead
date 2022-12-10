@@ -10,7 +10,7 @@
             <h3><%= t('.sign_in') %></h3>
           </div>
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "account-wrap", data: { turbo: false }) do |f| %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "account-wrap" }, data: { turbo: false }) do |f| %>
             <div class="form-group mb-24 icon">
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
               <%= image_tag('icon/sms.svg', alt: "sms") %>
