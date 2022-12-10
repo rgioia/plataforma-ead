@@ -1,20 +1,32 @@
 <nav class="sidebar-menu">
   <ul class="list-group flex-column d-inline-block first-menu" data-simplebar>
-    <li class="list-group-item main-grid active">
-      <%= link_to root_path, class: 'icon' do %>
-        <%= image_tag("icon/element.svg", alt: "element") %>
-      <% end %>
-
-      <ul class="list-group flex-column d-inline-block submenu">
-        <li class="list-group-item">
-          <a href="website-analytics.html" class="active">Website Analytics</a>
-        </li>
-      </ul>
+    <li class="list-group-item main-grid">
+      <a href="calendar.html" class="icon">
+        <%= image_tag("icon/monitor.svg", alt: "Cursos") %>
+      </a>
     </li>
 
     <li class="list-group-item main-grid">
       <a href="calendar.html" class="icon">
-        <%= image_tag("icon/calendar.svg", alt: "calendar") %>
+        <%= image_tag("icon/profile-2user.svg", alt: "Alunos") %>
+      </a>
+    </li>
+
+    <li class="list-group-item main-grid">
+      <a href="calendar.html" class="icon">
+        <%= image_tag("icon/star-line.svg", alt: "Professores") %>
+      </a>
+    </li>
+
+    <li class="list-group-item main-grid">
+      <a href="calendar.html" class="icon">
+        <%= image_tag("icon/save-2.svg", alt: "Cupons de desconto") %>
+      </a>
+    </li>
+
+    <li class="list-group-item main-grid">
+      <a href="calendar.html" class="icon">
+        <%= image_tag("icon/layer.svg", alt: "Categoria") %>
       </a>
     </li>
   </ul>

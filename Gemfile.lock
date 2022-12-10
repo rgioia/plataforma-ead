@@ -83,6 +83,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    cocoon (1.2.15)
     coderay (1.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
@@ -100,6 +101,8 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
+    enumerize (2.5.0)
+      activesupport (>= 3.2)
     erubi (1.11.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -257,10 +260,12 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
+  cocoon
   cssbundling-rails
   debug
   devise
   devise-i18n
+  enumerize
   jbuilder
   jsbundling-rails
   letter_opener
