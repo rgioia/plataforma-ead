@@ -5959,3 +5959,7 @@ Page-navigation Area Style*/
   fill: #BCC2CF;
   font-size: 12px;
 }/*# sourceMappingURL=style.css.map */
+
+.custom-size-logo {
+  height: 50px !important;
+}
