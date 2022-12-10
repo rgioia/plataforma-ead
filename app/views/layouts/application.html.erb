@@ -10,7 +10,16 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="body-bg-f8faff">
+    <%= render 'shared/preloader' %>
+    <div class="all-section-area">
+      <%= render 'shared/header' %>
+      <%= render 'shared/sidebar_menu' %>
+      <main class="main-content-wrap">
+        <%= yield %>
+      </main>
+      <%= render 'shared/footer' %>
+    </div>
+  <%= render 'shared/go_top' %>
   </body>
 </html>
