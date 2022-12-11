@@ -15,6 +15,9 @@ pt-BR:
     person:
       one: Pessoa
       other: Pessoas
+    course:
+      one: Curso
+      other: Cursos
   activerecord:
     attributes:
       user:
@@ -29,3 +32,12 @@ pt-BR:
       category:
         name: Nome
         created_at: Registrado em
+      course:
+        name: Nome
+        start_date: Date de início
+        price: Preço
+        limit_subscriptions: Limite de inscrições
+        photo: Capa
+        created_at: Registrado em
+        category_id: Categoria
+        category: Categoria

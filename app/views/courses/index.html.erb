@@ -11,6 +11,11 @@
             <%= f.label :name_cont, class: 'form-label' %>
             <%= f.search_field :name_cont, class: 'form-control' %>
           </div>
+
+          <div class="col-6">
+            <%= f.label :category_id_eq, class: 'form-label' %>
+            <%= f.collection_select :category_id_eq, Category.order_by_name, :id, :name, { prompt: t("actions.select")}, { class: 'form-control'} %>
+          </div>
         </div>
 
         <div class="row mt-3">
@@ -33,14 +38,14 @@
             <div class="row align-items-center">
               <div class="col-lg-6 col-sm-6">
                 <div class="page-title">
-                  <h3><%= t('models.category.other') %></h3>
+                  <h3><%= t('models.course.other') %></h3>
                 </div>
               </div>
 
               <div class="col-lg-6 col-sm-6">
                 <ul class="page-title-list">
                   <li><%= link_to 'Dashboard', root_path %></li>
-                  <li><%= link_to t('models.category.other'), categories_path %></li>
+                  <li><%= link_to t('models.course.other'), courses_path %></li>
                 </ul>
               </div>
             </div>
@@ -49,23 +54,33 @@
       </div>
 
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <%= link_to t("actions.add"), new_category_path, class: 'btn btn-sm btn-outline-primary mb-1' %>
+        <%= link_to t("actions.add"), new_course_path, class: 'btn btn-sm btn-outline-primary mb-1' %>
       </div>
 
       <div class="card-box-style table-responsive">
         <table class="table">
           <thead class="vertical-align">
-          <tr>
-            <th scope="col"><%= Category.human_attribute_name(:name) %></th>
-            <th scope="col"><%= Category.human_attribute_name(:created_at) %></th>
-            <th scope="col"></th>
-          </tr>
+            <tr>
+              <th scope="col"><%= Course.human_attribute_name(:photo) %></th>
+              <th scope="col"><%= Course.human_attribute_name(:name) %></th>
+              <th scope="col"><%= Course.human_attribute_name(:start_date) %></th>
+              <th scope="col"><%= Course.human_attribute_name(:price) %></th>
+              <th scope="col"><%= Course.human_attribute_name(:limit_subscriptions) %></th>
+              <th scope="col"><%= Course.human_attribute_name(:category) %></th>
+              <th scope="col"><%= Course.human_attribute_name(:created_at) %></th>
+              <th scope="col"></th>
+            </tr>
           </thead>
           <tbody class="vertical-align">
-          <% @categories.each do |category| %>
+          <% @courses.each do |course| %>
             <tr>
-              <td><%= category.name %></td>
-              <td><%= l category.created_at, format: :long %></td>
+              <td><%= image_tag(course.photo, class: 'img-fluid', size: "40x40") %></td>
+              <td><%= course.name %></td>
+              <td><%= l course.start_date %></td>
+              <td><%= number_to_currency(course.price) %></td>
+              <td><%= course.limit_subscriptions %></td>
+              <td><%= course.category_name %></td>
+              <td><%= l course.created_at, format: :long %></td>
               <td>
                 <div class="btn-group mb-1">
                   <button type="button" class="btn btn-light dropdown-toggle bg-white" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,11 +89,11 @@
 
                   <ul class="dropdown-menu">
                     <li>
-                      <%= link_to t('actions.edit'), edit_category_path(category), class: 'dropdown-item' %>
+                      <%= link_to t('actions.edit'), edit_course_path(course), class: 'dropdown-item' %>
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
-                      <%= link_to t("actions.remove"), category, data: { turbo_method: :delete, turbo_confirm: t("actions.confirmation_to_remove") }, class: 'dropdown-item' %>
+                      <%= link_to t("actions.remove"), course, data: { turbo_method: :delete, turbo_confirm: t("actions.confirmation_to_remove") }, class: 'dropdown-item' %>
                     </li>
                   </ul>
                 </div>
@@ -87,7 +102,7 @@
           <% end %>
           </tbody>
         </table>
-        <%= will_paginate @categories, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+        <%= will_paginate @courses, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
       </div>
     </div>
   </div>

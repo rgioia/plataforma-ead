@@ -18,7 +18,7 @@
                   <li><%= link_to 'Dashboard', root_path %></li>
                   <li><%= link_to 'Categorias', categories_path %></li>
                   <li>
-                    <% if link_to @category.persisted? %>
+                    <% if @category.persisted? %>
                       <%= link_to t('actions.edit'), edit_category_path(@category) %>
                     <% else %>
                       <%= link_to t('actions.add'), new_category_path %>

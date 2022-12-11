@@ -15,6 +15,7 @@ pt-BR:
     clear: Limpar
     confirmation_to_remove: Tem certeza que deseja remover este registro?
     confirmation: Tem certeza?
+    select: Selecione
   words:
     actions: Ações
     filters: Filtros

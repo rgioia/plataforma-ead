@@ -1,9 +1,9 @@
 <nav class="sidebar-menu">
   <ul class="list-group flex-column d-inline-block first-menu" data-simplebar>
     <li class="list-group-item main-grid">
-      <a href="calendar.html" class="icon">
-        <%= image_tag("icon/monitor.svg", alt: "Cursos") %>
-      </a>
+      <%= link_to courses_path, class: "icon" do %>
+        <%= image_tag("icon/monitor.svg", alt: t("models.course.other")) %>
+      <% end %>
     </li>
 
     <li class="list-group-item main-grid">
@@ -26,7 +26,7 @@
 
     <li class="list-group-item main-grid">
       <%= link_to categories_path, class: "icon" do %>
-        <%= image_tag("icon/layer.svg", alt: "Categorias") %>
+        <%= image_tag("icon/layer.svg", alt: t("models.category.other")) %>
       <% end %>
     </li>
   </ul>
