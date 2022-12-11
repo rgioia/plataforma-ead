@@ -3,12 +3,20 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :search_courses
+
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.json { head :forbidden, content_type: 'text/html' }
       format.html { redirect_to root_path, alert: t('words.permission_errors') }
       format.js   { head :forbidden, content_type: 'text/html' }
     end
+  end
+
+  def search_courses
+    @courses_header_search = Course.accessible_by(current_ability).ransack(params[:q])
+    @courses_header_search.sorts = 'name asc' if @courses_header_search.sorts.empty?
+    @courses = @courses_header_search.result.paginate(page: params[:page], per_page: 10)
   end
 
   protected

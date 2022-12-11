@@ -5,7 +5,7 @@ class TeachersController < ApplicationController
 
   def index
     @q = Teacher.accessible_by(current_ability).ransack(params[:q])
-    # @q.sorts = 'name asc' if @q.sorts.empty?
+    @q.sorts = 'person_name asc' if @q.sorts.empty?
     @teachers = @q.result.paginate(page: params[:page], per_page: 10)
   end
 

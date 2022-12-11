@@ -27,21 +27,21 @@ pt-BR:
         email: Email
         password: Senha
         profile: Perfil
-        created_at: Registrado em
+        created_at: Registrado
       person:
         name: Nome
         age: Idade
-        created_at: Registrado em
+        created_at: Registrado
       category:
         name: Nome
-        created_at: Registrado em
+        created_at: Registrado
       course:
         name: Nome
         start_date: Date de início
         price: Preço
         limit_subscriptions: Limite de inscrições
         photo: Capa
-        created_at: Registrado em
+        created_at: Registrado
         category_id: Categoria
         category: Categoria
       teacher:

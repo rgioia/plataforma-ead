@@ -11,6 +11,11 @@
             <%= f.label :person_name_cont, Person.human_attribute_name(:name), class: 'form-label' %>
             <%= f.search_field :person_name_cont, class: 'form-control' %>
           </div>
+
+          <div class="col-6">
+            <%= f.label :person_user_email_cont, User.human_attribute_name(:email), class: 'form-label' %>
+            <%= f.search_field :person_user_email_cont, class: 'form-control' %>
+          </div>
         </div>
 
         <div class="row mt-3">
