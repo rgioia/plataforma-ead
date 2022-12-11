@@ -7,7 +7,9 @@
             <div class="row align-items-center">
               <div class="col-lg-6 col-sm-6">
                 <div class="page-title">
-                  <h3>Nova categoria</h3>
+                  <h3>
+                    <%= @category.persisted? ? t('actions.edit') : t('actions.add') %> <%= t('models.category.one') %>
+                  </h3>
                 </div>
               </div>
 
@@ -15,7 +17,13 @@
                 <ul class="page-title-list">
                   <li><%= link_to 'Dashboard', root_path %></li>
                   <li><%= link_to 'Categorias', categories_path %></li>
-                  <li><%= link_to 'Adicionar', new_category_path %></li>
+                  <li>
+                    <% if link_to @category.persisted? %>
+                      <%= link_to t('actions.edit'), edit_category_path(@category) %>
+                    <% else %>
+                      <%= link_to t('actions.add'), new_category_path %>
+                    <% end %>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -37,7 +45,7 @@
 
               <div class="row">
                 <div class="col-12">
-                  <%= f.submit 'Cadastrar', class: "btn btn-primary" %>
+                  <%= f.submit @category.persisted? ? t('actions.edit') : t('actions.add'), class: "btn btn-primary" %>
                 </div>
               </div>
             </div>
