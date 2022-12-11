@@ -3,6 +3,41 @@
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="overview-content-wrap card-box-style">
+          <div class="row">
+            <% if @courses.present? %>
+              <% @courses.each do |course| %>
+                <div class="col-lg-3 col-sm-6">
+                  <div class="card mb-4">
+                    <%= image_tag(course.photo, class: 'card-img-top') %>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= course.name %></h5>
+                      <hr/>
+                      <p class="card-text">
+                        <%= Course.human_attribute_name(:start_date) %>: <%= l course.start_date %>
+                      </p>
+                      <p class="card-text">
+                        <%= Course.human_attribute_name(:price) %>: <%= number_to_currency(course.price) %>
+                      </p>
+                      <p class="card-text">
+                        <%= Course.human_attribute_name(:category) %>: <%= course.category_name %>
+                      </p>
+                      <p class="card-text">
+                        <%= Course.human_attribute_name(:limit_subscriptions) %>: <%= course.limit_subscriptions %>
+                      </p>
+                      <p class="card-text">
+                        <%= Course.human_attribute_name(:created_at) %>: <%= l course.created_at, format: :long %>
+                      </p>
+                      <div class="col-md-12 text-center">
+                        <%= link_to t('actions.subscription'), '#', class: 'btn btn-primary' %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <h5><%= t("words.records_not_found") %></h5>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

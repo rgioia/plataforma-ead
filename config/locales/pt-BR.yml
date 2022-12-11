@@ -16,6 +16,7 @@ pt-BR:
     confirmation_to_remove: Tem certeza que deseja remover este registro?
     confirmation: Tem certeza?
     select: Selecione
+    subscription: Inscrever-se
   words:
     actions: Ações
     filters: Filtros
@@ -23,6 +24,7 @@ pt-BR:
     boolean_yes: Sim
     boolean_no: Não
     permission_errors: Você não está autorizado à acessar essa página
+    records_not_found: Registros não encontrados
   activerecord:
     errors:
       messages:
