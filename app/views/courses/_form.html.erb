@@ -1,0 +1,82 @@
+<div class="panels-area">
+  <div class="container-fluid">
+    <div class="card-box-style">
+      <div class="others-title">
+        <div class="page-title-area">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-sm-6">
+                <div class="page-title">
+                  <h3>
+                    <%= @course.persisted? ? t('actions.edit') : t('actions.add') %> <%= t('models.course.one') %>
+                  </h3>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-6">
+                <ul class="page-title-list">
+                  <li><%= link_to 'Dashboard', root_path %></li>
+                  <li><%= link_to t('models.course.other'), courses_path %></li>
+                  <li>
+                    <% if @course.persisted? %>
+                      <%= link_to t('actions.edit'), edit_course_path(@course) %>
+                    <% else %>
+                      <%= link_to t('actions.add'), new_course_path %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= form_for(@course, data: { turbo: false }) do |f| %>
+        <div class="form-layouts-area">
+          <div class="container-fluid">
+            <div class="card-box-style">
+              <%= render "devise/shared/error_messages", resource: @course %>
+              <div class="pb-24">
+                <div class="mb-3">
+                  <%= f.label :name, class: 'form-label' %>
+                  <%= f.text_field :name, class: 'form-control' %>
+                </div>
+
+                <div class="mb-3">
+                  <%= f.label :category, class: 'form-label' %>
+                  <%= f.select :category_id, options_for_select(Category.order_by_name.collect{|category| [category.name, category.id]}, selected: f.object.category_id), {}, { class: 'form-control'}  %>
+                </div>
+
+                <div class="mb-3">
+                  <%= f.label :start_date, class: 'form-label' %>
+                  <%= f.date_field :start_date, class: 'form-control' %>
+                </div>
+
+                <div class="mb-3">
+                  <%= f.label :price, class: 'form-label' %>
+                  <%= f.text_field :price, class: 'form-control' %>
+                </div>
+
+                <div class="mb-3">
+                  <%= f.label :limit_subscriptions, class: 'form-label' %>
+                  <%= f.number_field :limit_subscriptions, class: 'form-control' %>
+                </div>
+
+                <div class="mb-3">
+                  <%= f.label :photo, class: 'form-label' %>
+                  <%= f.file_field :photo %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <%= f.submit @course.persisted? ? t('actions.edit') : t('actions.add'), class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

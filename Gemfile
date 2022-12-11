@@ -25,9 +25,8 @@ gem 'cancancan'
 gem 'ransack'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap-style'
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "groupdate"
+gem "chartkick"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -45,3 +44,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem "importmap-rails", "~> 1.1"
