@@ -13,9 +13,9 @@
     </li>
 
     <li class="list-group-item main-grid">
-      <a href="calendar.html" class="icon">
-        <%= image_tag("icon/star-line.svg", alt: "Professores") %>
-      </a>
+      <%= link_to teachers_path, class: "icon" do %>
+        <%= image_tag("icon/star-line.svg", alt: t("models.course.other")) %>
+      <% end %>
     </li>
 
     <li class="list-group-item main-grid">

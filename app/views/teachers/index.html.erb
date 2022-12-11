@@ -1,0 +1,100 @@
+<%= search_form_for @q do |f| %>
+  <div class="panels-area">
+    <div class="container-fluid">
+      <div class="card-box-style">
+        <div class="others-title">
+          <h3><%= t('words.filters') %></h3>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <%= f.label :person_name_cont, Person.human_attribute_name(:name), class: 'form-label' %>
+            <%= f.search_field :person_name_cont, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-6">
+            <%= f.submit t('actions.filter'), class: 'btn btn-outline-primary mb-1' %>
+            <%= link_to t('actions.clear'), url_for, class: 'btn btn-outline-danger mb-1' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="panels-area">
+  <div class="container-fluid">
+    <div class="card-box-style">
+      <div class="others-title">
+        <div class="page-title-area">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-sm-6">
+                <div class="page-title">
+                  <h3><%= t('models.teacher.other') %></h3>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-6">
+                <ul class="page-title-list">
+                  <li><%= link_to 'Dashboard', root_path %></li>
+                  <li><%= link_to t('models.teacher.other'), teachers_path %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <%= link_to t("actions.add"), new_teacher_path, class: 'btn btn-sm btn-outline-primary mb-1' %>
+      </div>
+
+      <div class="card-box-style table-responsive">
+        <table class="table">
+          <thead class="vertical-align">
+            <tr>
+              <th scope="col"><%= Teacher.human_attribute_name(:code) %></th>
+              <th scope="col"><%= Person.human_attribute_name(:name) %></th>
+              <th scope="col"><%= Person.human_attribute_name(:age) %></th>
+              <th scope="col"><%= User.human_attribute_name(:email) %></th>
+              <th scope="col"><%= Teacher.human_attribute_name(:active) %></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="vertical-align">
+          <% @teachers.each do |teacher| %>
+            <tr>
+              <td><%= teacher.code %></td>
+              <td><%= teacher.person_name %></td>
+              <td><%= teacher.person_age %></td>
+              <td><%= teacher.person.user_email %></td>
+              <td><%= teacher.active? %></td>
+              <td>
+                <div class="btn-group mb-1">
+                  <button type="button" class="btn btn-light dropdown-toggle bg-white" data-bs-toggle="dropdown" aria-expanded="false">
+                    <%= t('words.actions') %>
+                  </button>
+
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to t('actions.edit'), edit_teacher_path(teacher), class: 'dropdown-item' %>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                      <%= link_to t("actions.remove"), teacher, data: { turbo_method: :delete, turbo_confirm: t("actions.confirmation_to_remove") }, class: 'dropdown-item' %>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <%= will_paginate @courses, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+      </div>
+    </div>
+  </div>
+</div>
