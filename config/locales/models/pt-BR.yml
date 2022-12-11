@@ -1,11 +1,31 @@
 pt-BR:
+  notifications:
+    create_record: "%{model} registrada com sucesso"
+    update_record: "%{model} atualizada com sucesso"
+    remove_record: "%{model} removido com sucesso"
+    remove_denied: Não foi possível excluir
+    update_denied: Não foi possível atualizar
   models:
     user:
       one: Usuário
       other: Usuários
+    category:
+      one: Categoria
+      other: Categorias
+    person:
+      one: Pessoa
+      other: Pessoas
   activerecord:
     attributes:
       user:
         email: Email
         password: Senha
         profile: Perfil
+        created_at: Registrado em
+      person:
+        name: Nome
+        age: Idade
+        created_at: Registrado em
+      category:
+        name: Nome
+        created_at: Registrado em

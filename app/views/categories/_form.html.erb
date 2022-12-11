@@ -1,0 +1,49 @@
+<div class="panels-area">
+  <div class="container-fluid">
+    <div class="card-box-style">
+      <div class="others-title">
+        <div class="page-title-area">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-sm-6">
+                <div class="page-title">
+                  <h3>Nova categoria</h3>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-6">
+                <ul class="page-title-list">
+                  <li><%= link_to 'Dashboard', root_path %></li>
+                  <li><%= link_to 'Categorias', categories_path %></li>
+                  <li><%= link_to 'Adicionar', new_category_path %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= form_for(@category, data: { turbo: false }) do |f| %>
+        <div class="form-layouts-area">
+          <div class="container-fluid">
+            <div class="card-box-style">
+              <%= render "devise/shared/error_messages", resource: @category %>
+              <div class="pb-24">
+                <div class="mb-3">
+                  <%= f.label :name, class: 'form-label' %>
+                  <%= f.text_field :name, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <%= f.submit 'Cadastrar', class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

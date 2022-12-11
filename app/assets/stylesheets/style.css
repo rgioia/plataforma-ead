@@ -321,7 +321,7 @@ Main Content Wrap Style
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 92vh;
 }
 .main-content-wrap.style-two {
   padding-left: 312px;
@@ -3882,7 +3882,7 @@ Gallery Area Style
 ======================================================*/
 .others-title {
   border-bottom: 1px solid #eeeeee;
-  padding-bottom: 10px;
+  /*padding-bottom: 10px;*/
   margin-bottom: 30px;
 }
 .others-title h3 {
@@ -5962,4 +5962,9 @@ Page-navigation Area Style*/
 
 .custom-size-logo {
   height: 50px !important;
+}
+
+.no-margins {
+  margin-top: 0;
+  margin-bottom: 0;
 }

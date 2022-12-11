@@ -1,5 +1,23 @@
 ---
 pt-BR:
+  actions:
+    close: Fechar
+    add: Adicionar
+    edit: Editar
+    show: Visualizar
+    remove: Remover
+    register: Cadastrar
+    update: Alterar
+    back: Voltar
+    logout: Deslogar
+    cancel: Cancelar
+    filter: Filtrar
+    clear: Limpar
+    confirmation_to_remove: Tem certeza que deseja remover este registro?
+    confirmation: Tem certeza?
+  words:
+    actions: Ações
+    filters: Filtros
   activerecord:
     errors:
       messages:
