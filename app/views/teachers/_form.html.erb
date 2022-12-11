@@ -1,0 +1,67 @@
+<div class="panels-area">
+  <div class="container-fluid">
+    <div class="card-box-style">
+      <div class="others-title">
+        <div class="page-title-area">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-sm-6">
+                <div class="page-title">
+                  <h3>
+                    <%= @teacher.persisted? ? t('actions.edit') : t('actions.add') %> <%= t('models.teacher.one') %>
+                  </h3>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-6">
+                <ul class="page-title-list">
+                  <li><%= link_to 'Dashboard', root_path %></li>
+                  <li><%= link_to t('models.teacher.other'), teachers_path %></li>
+                  <li>
+                    <% if @teacher.persisted? %>
+                      <%= link_to t('actions.edit'), edit_teacher_path(@teacher) %>
+                    <% else %>
+                      <%= link_to t('actions.add'), new_teacher_path %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= form_for(@teacher, data: { turbo: false }) do |f| %>
+        <div class="form-layouts-area">
+          <div class="container-fluid">
+            <div class="card-box-style">
+              <%= render "devise/shared/error_messages", resource: @teacher %>
+              <div class="pb-24">
+                <div class="form-group mb-24 icon">
+                  <%= f.text_field :code, autofocus: true, class: 'form-control', placeholder: Teacher.human_attribute_name(:code) %>
+                  <%= image_tag('icon/sms.svg', alt: "sms") %>
+                </div>
+
+                <% f.object.build_person if f.object.person.blank? %>
+                <%= f.fields_for :person do |person| %>
+                  <%= render 'devise/registrations/person_fields', f: person %>
+
+                  <% person.object.build_user if person.object.user.blank? %>
+                  <%= person.fields_for :user do |user| %>
+                    <%= render 'user_fields', f: user %>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <%= f.submit @teacher.persisted? ? t('actions.edit') : t('actions.add'), class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

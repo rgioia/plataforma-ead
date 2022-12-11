@@ -18,6 +18,9 @@ pt-BR:
     course:
       one: Curso
       other: Cursos
+    teacher:
+      one: Professor
+      other: Professores
   activerecord:
     attributes:
       user:
@@ -41,3 +44,6 @@ pt-BR:
         created_at: Registrado em
         category_id: Categoria
         category: Categoria
+      teacher:
+        code: Matrícula
+        active: Ativo?
