@@ -5,7 +5,13 @@ class Person < ApplicationRecord
 
   validates :name, :age, presence: true
 
-  accepts_nested_attributes_for :user, reject_if: :all_blank
+  accepts_nested_attributes_for :user
 
   delegate :email, to: :user, prefix: :user
+
+  attr_accessor :created_by_administrator
+
+  def self.not_teachers
+    where.missing(:teacher)
+  end
 end

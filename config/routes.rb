@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :categories, except: :show
   resources :courses, except: :show
   resources :teachers, except: :show
+  resources :people, except: :show
 end

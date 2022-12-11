@@ -15,6 +15,8 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.person.created_by_administrator = true
+
     if @teacher.save
       redirect_to teachers_path, notice: t('notifications.create_record', model: t('models.teacher.one'))
     else
