@@ -1,0 +1,7 @@
+pt-BR:
+  enumerize:
+    user:
+      profile:
+        student: Estudante
+        teacher: Professor
+        administrator: Administrador
