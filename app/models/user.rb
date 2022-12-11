@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :validatable
 
   has_one :person
-  accepts_nested_attributes_for :person, reject_if: :all_blank
+  accepts_nested_attributes_for :person
 
   validates :email, uniqueness: true
   validates :email, presence: true
@@ -16,15 +16,15 @@ class User < ApplicationRecord
 
   before_validation :set_new_password, on: :create
 
-  after_create :send_reset_password_instructions, if: :teacher?
+  after_create :send_reset_password_instructions, if: :created_by_administrator?
 
   private
 
   def set_new_password
-    self.password = SecureRandom.hex(10) if teacher?
+    self.password = SecureRandom.hex(10) if created_by_administrator?
   end
 
-  def teacher?
-    person.present? && person.teacher.present?
+  def created_by_administrator?
+    person.created_by_administrator
   end
 end

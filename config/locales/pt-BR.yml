@@ -19,6 +19,10 @@ pt-BR:
   words:
     actions: Ações
     filters: Filtros
+    title_project: Plataforma EAD - Startamus
+    boolean_yes: Sim
+    boolean_no: Não
+    permission_errors: Você não está autorizado à acessar essa página
   activerecord:
     errors:
       messages:

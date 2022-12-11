@@ -1,0 +1,59 @@
+<div class="panels-area">
+  <div class="container-fluid">
+    <div class="card-box-style">
+      <div class="others-title">
+        <div class="page-title-area">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-sm-6">
+                <div class="page-title">
+                  <h3>
+                    <%= @person.persisted? ? t('actions.edit') : t('actions.add') %> <%= t('models.person.one') %>
+                  </h3>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-6">
+                <ul class="page-title-list">
+                  <li><%= link_to 'Dashboard', root_path %></li>
+                  <li><%= link_to t('models.person.other'), people_path %></li>
+                  <li>
+                    <% if @person.persisted? %>
+                      <%= link_to t('actions.edit'), edit_person_path(@person) %>
+                    <% else %>
+                      <%= link_to t('actions.add'), new_person_path %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= form_for(@person, data: { turbo: false }) do |person| %>
+        <div class="form-layouts-area">
+          <div class="container-fluid">
+            <div class="card-box-style">
+              <%= render "devise/shared/error_messages", resource: @person %>
+              <div class="pb-24">
+                <%= render 'devise/registrations/person_fields', f: person %>
+
+                <% person.object.build_user if person.object.user.blank? %>
+                <%= person.fields_for :user do |user| %>
+                  <%= render 'user_fields', f: user %>
+                <% end %>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <%= person.submit @person.persisted? ? t('actions.edit') : t('actions.add'), class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -7,9 +7,9 @@
     </li>
 
     <li class="list-group-item main-grid">
-      <a href="calendar.html" class="icon">
-        <%= image_tag("icon/profile-2user.svg", alt: "Alunos") %>
-      </a>
+      <%= link_to people_path, class: "icon" do %>
+        <%= image_tag("icon/profile-2user.svg", alt: t("models.person.other")) %>
+      <% end %>
     </li>
 
     <li class="list-group-item main-grid">
