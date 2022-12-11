@@ -21,6 +21,9 @@ pt-BR:
     teacher:
       one: Professor
       other: Professores
+    subscription:
+      one: Inscrição
+      other: Inscrições
   activerecord:
     attributes:
       user:
@@ -47,3 +50,9 @@ pt-BR:
       teacher:
         code: Matrícula
         active: Ativo?
+      subscription:
+        status: Status
+        amount: Valor
+        paid_amount: Valor pago
+        payment_date: Data de pagamento
+        form_of_payment: Forma de pagamento
