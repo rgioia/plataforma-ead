@@ -1,4 +1,9 @@
 class Course < ApplicationRecord
+  extend FriendlyId
+
+  friendly_id :name, use: :slugged
+  validates :slug, uniqueness: true
+
   belongs_to :category
 
   validates :name, presence: true
@@ -9,4 +14,9 @@ class Course < ApplicationRecord
   has_one_attached :photo
 
   delegate :name, to: :category, prefix: :category
+
+  private
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
+  end
 end

@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
   private
 
   def find_person
-    @person = Person.accessible_by(current_ability).find_by(id: params[:id])
+    @person = Person.accessible_by(current_ability).find(params[:id])
   end
 
   def person_params

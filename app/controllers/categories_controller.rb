@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
   private
 
   def find_category
-    @category = Category.accessible_by(current_ability).find_by(id: params[:id])
+    @category = Category.accessible_by(current_ability).find(params[:id])
   end
 
   def category_params

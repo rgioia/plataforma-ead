@@ -45,7 +45,7 @@ class TeachersController < ApplicationController
   private
 
   def find_teacher
-    @teacher = Teacher.accessible_by(current_ability).find_by(id: params[:id])
+    @teacher = Teacher.accessible_by(current_ability).find(params[:id])
   end
 
   def teacher_params

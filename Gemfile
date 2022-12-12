@@ -27,6 +27,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap-style'
 gem "groupdate"
 gem "chartkick"
+gem 'friendly_id', '~> 5.4.0'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

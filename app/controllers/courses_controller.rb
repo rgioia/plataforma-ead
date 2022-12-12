@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
   private
 
   def find_course
-    @course = Course.accessible_by(current_ability).find_by(id: params[:id])
+    @course = Course.accessible_by(current_ability).find(params[:id])
   end
 
   def course_params
