@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :courses, except: :show
   resources :teachers, except: :show
   resources :people, except: :show
+
+  resources :courses, only: [] do
+    resources :subscriptions
+  end
 end

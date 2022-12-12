@@ -5,3 +5,12 @@ pt-BR:
         student: Estudante
         teacher: Professor
         administrator: Administrador
+    subscription:
+      status:
+        pending: Pendente
+        authorized: Autorizado
+        canceled: Cancelado
+      form_of_payment:
+        pix: PIX
+        credit_card: Cartão de crédito
+        debit_card: Cartão de débito

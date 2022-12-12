@@ -6,6 +6,8 @@ class Course < ApplicationRecord
 
   belongs_to :category
 
+  has_many :subscriptions, dependent: :restrict_with_error
+
   validates :name, presence: true
   validates :start_date, presence: true
   validates :price, presence: true

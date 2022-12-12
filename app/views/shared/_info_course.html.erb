@@ -1,0 +1,15 @@
+<p class="card-text">
+  <%= Course.human_attribute_name(:start_date) %>: <%= l course.start_date %>
+</p>
+<p class="card-text">
+  <%= Course.human_attribute_name(:price) %>: <%= number_to_currency(course.price) %>
+</p>
+<p class="card-text">
+  <%= Course.human_attribute_name(:category) %>: <%= course.category_name %>
+</p>
+<p class="card-text">
+  <%= Course.human_attribute_name(:limit_subscriptions) %>: <%= course.subscriptions.count %> / <%= course.limit_subscriptions %>
+</p>
+<p class="card-text">
+  <%= Course.human_attribute_name(:created_at) %>: <%= l course.created_at, format: :long %>
+</p>

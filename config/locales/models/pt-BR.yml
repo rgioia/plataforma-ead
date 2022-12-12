@@ -56,3 +56,9 @@ pt-BR:
         paid_amount: Valor pago
         payment_date: Data de pagamento
         form_of_payment: Forma de pagamento
+    errors:
+      models:
+        subscription:
+          attributes:
+            base:
+              subscriptions_reached_limit: O curso já está com o limite de inscrições

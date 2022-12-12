@@ -13,4 +13,18 @@ class Subscription < ApplicationRecord
 
   enumerize :form_of_payment, in: { pix: 1, credit_card: 2, debit_card: 3 },
             i18n_scope: 'enumerize.subscription.form_of_payment', scope: true
+
+  validate :subscriptions_reached_limit, on: :create
+
+  before_validation :set_amount
+
+  private
+
+  def set_amount
+    self.amount = course.price
+  end
+
+  def subscriptions_reached_limit
+    errors.add(:base, :subscriptions_reached_limit) if course.limit_subscriptions <= course.subscriptions.without_status(:canceled).count
+  end
 end

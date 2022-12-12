@@ -12,23 +12,9 @@
                     <div class="card-body">
                       <h5 class="card-title"><%= course.name %></h5>
                       <hr/>
-                      <p class="card-text">
-                        <%= Course.human_attribute_name(:start_date) %>: <%= l course.start_date %>
-                      </p>
-                      <p class="card-text">
-                        <%= Course.human_attribute_name(:price) %>: <%= number_to_currency(course.price) %>
-                      </p>
-                      <p class="card-text">
-                        <%= Course.human_attribute_name(:category) %>: <%= course.category_name %>
-                      </p>
-                      <p class="card-text">
-                        <%= Course.human_attribute_name(:limit_subscriptions) %>: <%= course.limit_subscriptions %>
-                      </p>
-                      <p class="card-text">
-                        <%= Course.human_attribute_name(:created_at) %>: <%= l course.created_at, format: :long %>
-                      </p>
+                      <%= render partial: 'shared/info_course', locals: { course: course } %>
                       <div class="col-md-12 text-center">
-                        <%= link_to t('actions.subscription'), '#', class: 'btn btn-primary' %>
+                        <%= link_to t('actions.subscription'), new_course_subscription_path(course), class: 'btn btn-primary' %>
                       </div>
                     </div>
                   </div>
