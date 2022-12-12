@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'dashboard#index'
 
   resources :categories, except: :show
-  resources :courses, except: :show
+  resources :courses
   resources :teachers, except: :show
   resources :people, except: :show
 

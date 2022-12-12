@@ -9,6 +9,10 @@ class CoursesController < ApplicationController
     @courses = @q.result.paginate(page: params[:page], per_page: 10)
   end
 
+  def show
+
+  end
+
   def new
     @course = Course.new
   end

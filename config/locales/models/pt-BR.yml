@@ -56,6 +56,7 @@ pt-BR:
         paid_amount: Valor pago
         payment_date: Data de pagamento
         form_of_payment: Forma de pagamento
+        created_at: Registrado
     errors:
       models:
         subscription:

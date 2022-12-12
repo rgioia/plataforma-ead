@@ -1,0 +1,58 @@
+<div class="panels-area">
+  <div class="container-fluid">
+    <div class="card-box-style">
+      <div class="others-title">
+        <div class="page-title-area">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-sm-6">
+                <div class="page-title">
+                  <h3><%= @course.name %></h3>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-6">
+                <ul class="page-title-list">
+                  <li><%= link_to 'Dashboard', root_path %></li>
+                  <li><%= link_to t('models.course.other'), courses_path %></li>
+                  <li><%= @course.name %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5><%= t('models.subscription.other') %> (<%= @course.subscriptions.count %>)</h5>
+      <div class="card-box-style table-responsive">
+        <table class="table">
+          <thead class="vertical-align">
+          <tr>
+            <th scope="col"><%= Person.human_attribute_name(:name) %></th>
+            <th scope="col"><%= User.human_attribute_name(:email) %></th>
+            <th scope="col"><%= Subscription.human_attribute_name(:status) %></th>
+            <th scope="col"><%= Subscription.human_attribute_name(:amount) %></th>
+            <th scope="col"><%= Subscription.human_attribute_name(:paid_amount) %></th>
+            <th scope="col"><%= Subscription.human_attribute_name(:payment_date) %></th>
+            <th scope="col"><%= Subscription.human_attribute_name(:form_of_payment) %></th>
+            <th scope="col"><%= Subscription.human_attribute_name(:created_at) %></th>
+          </tr>
+          </thead>
+          <tbody class="vertical-align">
+          <% @course.subscriptions.each do |subscription| %>
+            <tr>
+              <td><%= subscription.person_name %></td>
+              <td><%= subscription.person.user_email %></td>
+              <td><%= subscription.status.text %></td>
+              <td><%= number_to_currency(subscription.amount) %></td>
+              <td><%= subscription.paid_amount.present? ? number_to_currency(subscription.paid_amount) : '---' %></td>
+              <td><%= subscription.payment_date.present? ? (l subscription.payment_date, format: :long) : '---' %></td>
+              <td><%= subscription.form_of_payment.text %></td>
+              <td><%= l subscription.created_at, format: :long %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

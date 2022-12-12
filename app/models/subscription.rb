@@ -16,6 +16,8 @@ class Subscription < ApplicationRecord
 
   validate :subscriptions_reached_limit, on: :create
 
+  delegate :name, to: :person, prefix: :person
+
   before_validation :set_amount
 
   private
