@@ -47,6 +47,8 @@ pt-BR:
         created_at: Registrado
         category_id: Categoria
         category: Categoria
+        teacher: Professor
+        teacher_id: Professor
       teacher:
         code: Matrícula
         active: Ativo?

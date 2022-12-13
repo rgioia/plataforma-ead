@@ -48,6 +48,11 @@
                 </div>
 
                 <div class="mb-3">
+                  <%= f.label :teacher, class: 'form-label' %>
+                  <%= f.select :teacher_id, options_for_select(Teacher.order_by_name.collect{|teacher| [teacher.person_name, teacher.id]}, selected: f.object.teacher_id), {}, { class: 'form-control'}  %>
+                </div>
+
+                <div class="mb-3">
                   <%= f.label :start_date, class: 'form-label' %>
                   <%= f.date_field :start_date, class: 'form-control' %>
                 </div>

@@ -5,6 +5,7 @@ class Course < ApplicationRecord
   validates :slug, uniqueness: true
 
   belongs_to :category
+  belongs_to :teacher, optional: true
 
   has_many :subscriptions, dependent: :restrict_with_error
 

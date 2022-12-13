@@ -67,7 +67,7 @@
               <th scope="col"><%= Course.human_attribute_name(:price) %></th>
               <th scope="col"><%= Course.human_attribute_name(:limit_subscriptions) %></th>
               <th scope="col"><%= Course.human_attribute_name(:category) %></th>
-              <th scope="col"><%= Course.human_attribute_name(:created_at) %></th>
+              <th scope="col"><%= Course.human_attribute_name(:teacher) %></th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -80,7 +80,7 @@
               <td><%= number_to_currency(course.price) %></td>
               <td><%= course.limit_subscriptions %></td>
               <td><%= course.category_name %></td>
-              <td><%= l course.created_at, format: :long %></td>
+              <td><%= course.teacher&.person_name %></td>
               <td>
                 <div class="btn-group mb-1">
                   <button type="button" class="btn btn-light dropdown-toggle bg-white" data-bs-toggle="dropdown" aria-expanded="false">

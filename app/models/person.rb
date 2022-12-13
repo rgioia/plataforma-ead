@@ -16,6 +16,10 @@ class Person < ApplicationRecord
 
   attr_accessor :created_by_administrator
 
+  def self.order_by_name
+    order(name: :asc)
+  end
+
   def self.not_teachers
     where.missing(:teacher)
   end
