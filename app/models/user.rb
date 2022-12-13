@@ -25,6 +25,6 @@ class User < ApplicationRecord
   end
 
   def created_by_administrator?
-    person.created_by_administrator
+    person&.created_by_administrator
   end
 end
