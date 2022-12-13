@@ -25,6 +25,7 @@ pt-BR:
     boolean_no: Não
     permission_errors: Você não está autorizado à acessar essa página
     records_not_found: Registros não encontrados
+    to_allocate: A alocar
   activerecord:
     errors:
       messages:

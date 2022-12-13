@@ -11,5 +11,8 @@
   <%= Course.human_attribute_name(:limit_subscriptions) %>: <%= course.subscriptions.count %> / <%= course.limit_subscriptions %>
 </p>
 <p class="card-text">
+  <%= Course.human_attribute_name(:teacher) %>: <%= course.decorate.show_teacher_name %>
+</p>
+<p class="card-text">
   <%= Course.human_attribute_name(:created_at) %>: <%= l course.created_at, format: :long %>
 </p>

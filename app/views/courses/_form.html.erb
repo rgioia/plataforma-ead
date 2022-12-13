@@ -49,7 +49,7 @@
 
                 <div class="mb-3">
                   <%= f.label :teacher, class: 'form-label' %>
-                  <%= f.select :teacher_id, options_for_select(Teacher.order_by_name.collect{|teacher| [teacher.person_name, teacher.id]}, selected: f.object.teacher_id), {}, { class: 'form-control'}  %>
+                  <%= f.select :teacher_id, options_for_select(Teacher.order_by_name.collect{|teacher| [teacher.person_name, teacher.id]}, selected: f.object.teacher_id), { prompt: t('actions.select')}, { class: 'form-control'}  %>
                 </div>
 
                 <div class="mb-3">
