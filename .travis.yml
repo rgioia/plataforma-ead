@@ -1,12 +1,14 @@
 language: ruby
-rvm:
-  - 3.1.3
-bundler_args: --jobs=2
-script:
-  - bundle exec rails db:setup
-  - bundle exec rspec
-cache: bundler
+cache:
+  - bundler
+  - yarn
 services:
   - postgresql
-addons:
-  postgresql: "13"
+before_install:
+  - nvm install --lts
+before_script:
+  - bundle install --jobs=3 --retry=3
+  - bundle exec rails db:create
+  - bundle exec rails db:schema:load
+script:
+  - bundle exec rspec
