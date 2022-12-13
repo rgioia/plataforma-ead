@@ -9,4 +9,8 @@ module ApplicationHelper
       "bg-white"
     end
   end
+
+  def boolean_tag(boolean)
+    boolean ? I18n.t("words.boolean_yes") : I18n.t("words.boolean_no")
+  end
 end

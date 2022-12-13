@@ -14,7 +14,11 @@
                       <hr/>
                       <%= render partial: 'shared/info_course', locals: { course: course } %>
                       <div class="col-md-12 text-center">
-                        <%= link_to t('actions.subscription'), new_course_subscription_path(course), class: 'btn btn-primary' %>
+                        <% if course.can_subscribe? %>
+                          <%= link_to t('actions.subscription'), new_course_subscription_path(course), class: 'btn btn-primary' %>
+                        <% else %>
+                          <%= link_to t('words.cannot_subscribe'), '#0', class: 'btn btn-secondary', disabled: true %>
+                        <% end %>
                       </div>
                     </div>
                   </div>

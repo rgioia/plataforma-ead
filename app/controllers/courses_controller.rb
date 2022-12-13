@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
 
   def index
     @q = Course.accessible_by(current_ability).ransack(params[:q])
-    @q.sorts = 'name asc' if @q.sorts.empty?
+    @q.sorts = 'start_date asc' if @q.sorts.empty?
     @courses = @q.result.paginate(page: params[:page], per_page: 10)
   end
 

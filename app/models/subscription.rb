@@ -27,6 +27,6 @@ class Subscription < ApplicationRecord
   end
 
   def subscriptions_reached_limit
-    errors.add(:base, :subscriptions_reached_limit) if course.limit_subscriptions <= course.subscriptions.without_status(:canceled).count
+    errors.add(:base, :subscriptions_reached_limit) unless subscription.can_subscribe?
   end
 end

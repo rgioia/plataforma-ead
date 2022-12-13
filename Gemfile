@@ -29,6 +29,7 @@ gem "groupdate"
 gem "chartkick"
 gem 'friendly_id', '~> 5.4.0'
 gem 'draper'
+gem 'faker'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

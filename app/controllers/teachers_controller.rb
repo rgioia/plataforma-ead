@@ -5,7 +5,7 @@ class TeachersController < ApplicationController
 
   def index
     @q = Teacher.accessible_by(current_ability).ransack(params[:q])
-    @q.sorts = 'person_name asc' if @q.sorts.empty?
+    @q.sorts = 'code asc' if @q.sorts.empty?
     @teachers = @q.result.paginate(page: params[:page], per_page: 10)
   end
 
@@ -49,6 +49,6 @@ class TeachersController < ApplicationController
   end
 
   def teacher_params
-    params.require(:teacher).permit(:code, person_attributes: [:id, :name, :age, user_attributes: [:id, :email]])
+    params.require(:teacher).permit(:code, :active, person_attributes: [:id, :name, :age, user_attributes: [:id, :email]])
   end
 end
